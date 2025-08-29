@@ -19,12 +19,69 @@
   <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg?v=1">
   <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png?v=1">
   <link rel="manifest" href="favicon/site.webmanifest" crossorigin="use-credentials">
-
+  <!-- генерируйте favicon тут - https://realfavicongenerator.net/ -->
+  <!-- ! в подключение фавикон манифеста обязательно добавьте строчки crossorigin="use-credentials"-->
+  <!-- <link href="favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+<link href="favicon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+<link href="favicon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link href="favicon/site.webmanifest" rel="manifest" crossorigin="use-credentials">
+<link color="#c84659" href="favicon/safari-pinned-tab.svg" rel="mask-icon">
+<link href="favicon/favicon.ico" rel="shortcut icon">
+<meta content="#ffffff" name="msapplication-TileColor">
+<meta content="favicon/browserconfig.xml" name="msapplication-config">
+<meta content="#ffffff" name="theme-color">
+ -->
+  <!-- <link rel="preload" href="fonts/rubik.woff2" as="font" crossorigin="anonymous"> -->
+  <!-- используйте только для шрифта находящегося на первом экране -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@600&display=swap" rel="stylesheet">
   <link rel="preload" href="fonts/Rubik-Bold.woff2" as="font" crossorigin="anonymous">
   <link rel="preload" href="fonts/Jost-Regular.woff2" as="font" crossorigin="anonymous">
   <!-- Preload hero image for LCP -->
   <link rel="preload" as="image" href="img/bg/gorilla.png" imagesrcset="img/bg/gorilla.png 1x, img/bg/gorilla@2x.png 2x" imagesizes="(max-width: 704px) 100vw, 704px" fetchpriority="high">
+  <style>
+    /* Critical CSS: layout for header/hero to speed first paint */
+    .header {
+      position: relative
+    }
+
+    .hero {
+      padding: 40px 0 0
+    }
+
+    .hero__box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: center
+    }
+
+    .hero__name {
+      font-weight: 600;
+      font-size: 28px;
+      margin: 0 0 6px
+    }
+
+    .hero__desc {
+      margin: 0 0 16px
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 20px;
+      border-radius: 6px
+    }
+
+    @media (max-width:1023px) {
+      .hero__box {
+        grid-template-columns: 1fr
+      }
+    }
+  </style>
   <link rel="stylesheet" href="css/style.min.css">
   <title>Immortals Team&nbsp;&mdash; школа бразильского джиу-джитсу</title>
 </head>
@@ -51,7 +108,7 @@
             <picture>
               <source media="(max-width: 100px)" srcset="img/logo.png 1x, img/logo@2x.png 2x">
               <source media="(max-width: 100px)" srcset="img/logo.png 1x, img/logo@2x.png 2x">
-              <img class="header__logo-img" src="img/logo.png" srcset="img/logo@2x.png 2x" width="84" height="60" alt="Immortals Team - Школа бразильского джиу-джитсу">
+              <img class="header__logo-img" src="img/logo.png" srcset="img/logo@2x.png 2x" width="84" height="60" alt="Immortals Team - Школа бразильского джиу-джитсу" decoding="async">
             </picture>
           </a>
           <nav class="main-nav">
@@ -96,6 +153,8 @@
                   <path d="M466.5 40C703.377 40 893 225.091 893 450.5C893 675.909 703.377 861 466.5 861C229.623 861 40 675.909 40 450.5C40 225.091 229.623 40 466.5 40Z" stroke="currentColor" stroke-width="80" />
                 </svg>
                 <picture>
+                  <source type="image/avif" media="(max-width: 704px)" srcset="img/bg/gorilla.avif 1x, img/bg/gorilla@2x.avif 2x" />
+                  <source type="image/webp" media="(max-width: 704px)" srcset="img/bg/gorilla.webp 1x, img/bg/gorilla@2x.webp 2x" />
                   <source media="(max-width: 704px)" srcset="img/bg/gorilla.png 1x, img/bg/gorilla@2x.png 2x" />
                   <img class="hero__img" src="img/bg/gorilla.png" srcset="img/bg/gorilla@2x.png 2x" width="704" height="1024" alt="Горилла" fetchpriority="high" decoding="async" />
                 </picture>
@@ -329,7 +388,7 @@
             <picture>
               <source media="(max-width: 100px)" srcset="img/logo.png 1x, img/logo@2x.png 2x" />
               <source media="(max-width: 100px)" srcset="img/logo.png 1x, img/logo@2x.png 2x" />
-              <img class="footer__logo-img" src="img/logo.png" srcset="img/logo@2x.png 2x" width="84" height="60" alt="Immortals Team - Школа бразильского джиу-джитсу" />
+              <img class="footer__logo-img" src="img/logo.png" srcset="img/logo@2x.png 2x" width="84" height="60" loading="lazy" decoding="async" alt="Immortals Team - Школа бразильского джиу-джитсу" />
             </picture>
           </a>
           <ul class="footer__user-list">
@@ -364,8 +423,8 @@
       </div>
     </footer>
   </div>
-  <script src="js/vendor.min.js"></script>
-  <script src="js/main.min.js"></script>
+  <script src="js/vendor.min.js" defer></script>
+  <script src="js/main.min.js" defer></script>
   <script>
     (function() {
       var mapContainer = document.getElementById('ymap');

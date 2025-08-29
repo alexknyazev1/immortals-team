@@ -1210,6 +1210,7 @@ body {
   height: 100%;
   font-family: "Jost", "Arial", sans-serif;
   background-color: #F4F3F2;
+  overflow-x: hidden;
 }
 
 a {

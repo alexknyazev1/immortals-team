@@ -33,11 +33,55 @@
  -->
   <!-- <link rel="preload" href="fonts/rubik.woff2" as="font" crossorigin="anonymous"> -->
   <!-- используйте только для шрифта находящегося на первом экране -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@600&display=swap" rel="stylesheet">
   <link rel="preload" href="fonts/Rubik-Bold.woff2" as="font" crossorigin="anonymous">
   <link rel="preload" href="fonts/Jost-Regular.woff2" as="font" crossorigin="anonymous">
   <!-- Preload hero image for LCP -->
   <link rel="preload" as="image" href="img/bg/gorilla.png" imagesrcset="img/bg/gorilla.png 1x, img/bg/gorilla@2x.png 2x" imagesizes="(max-width: 704px) 100vw, 704px" fetchpriority="high">
+  <style>
+    /* Critical CSS: layout for header/hero to speed first paint */
+    .header {
+      position: relative
+    }
+
+    .hero {
+      padding: 40px 0 0
+    }
+
+    .hero__box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: center
+    }
+
+    .hero__name {
+      font-weight: 600;
+      font-size: 28px;
+      margin: 0 0 6px
+    }
+
+    .hero__desc {
+      margin: 0 0 16px
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 20px;
+      border-radius: 6px
+    }
+
+    @media (max-width:1023px) {
+      .hero__box {
+        grid-template-columns: 1fr
+      }
+    }
+  </style>
   <link rel="stylesheet" href="css/style.min.css">
   <title>Компоненты</title>
   <style>
@@ -152,7 +196,7 @@
             <picture>
               <source media="(max-width: 100px)" srcset="img/logo.png 1x, img/logo@2x.png 2x" />
               <source media="(max-width: 100px)" srcset="img/logo.png 1x, img/logo@2x.png 2x" />
-              <img class="footer__logo-img" src="img/logo.png" srcset="img/logo@2x.png 2x" width="84" height="60" alt="Immortals Team - Школа бразильского джиу-джитсу" />
+              <img class="footer__logo-img" src="img/logo.png" srcset="img/logo@2x.png 2x" width="84" height="60" loading="lazy" decoding="async" alt="Immortals Team - Школа бразильского джиу-джитсу" />
             </picture>
           </a>
           <ul class="footer__user-list">
