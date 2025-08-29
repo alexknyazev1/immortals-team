@@ -1314,6 +1314,11 @@ button,
   -webkit-tap-highlight-color: transparent;
 }
 
+.u-defer {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 1000px;
+}
+
 .wrapper {
   position: relative;
   display: -webkit-box;
