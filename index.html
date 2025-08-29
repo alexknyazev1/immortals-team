@@ -15,6 +15,7 @@
   <meta property="og:description" content="Тренировки по бразильскому джиу-джитсу (BJJ): взрослые и дети, no-gi, набор в группы, первая неделя со скидкой.">
   <meta property="og:image" content="img/logo.png">
   <meta property="og:image:alt" content="Immortals Team">
+  <meta name="theme-color" content="#141024">
   <link rel="icon" href="favicon/favicon.ico?v=1" sizes="any">
   <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg?v=1">
   <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png?v=1">
@@ -106,8 +107,9 @@
         <div class="header__wrapper">
           <a class="header__logo" href="index.html" aria-label="Переход на главную">
             <picture>
-              <source media="(max-width: 100px)" srcset="img/logo.png 1x, img/logo@2x.png 2x">
-              <source media="(max-width: 100px)" srcset="img/logo.png 1x, img/logo@2x.png 2x">
+              <source type="image/avif" srcset="img/logo.avif 1x, img/logo@2x.avif 2x">
+              <source type="image/webp" srcset="img/logo.webp 1x, img/logo@2x.webp 2x">
+              <source srcset="img/logo.png 1x, img/logo@2x.png 2x">
               <img class="header__logo-img" src="img/logo.png" srcset="img/logo@2x.png 2x" width="84" height="60" alt="Immortals Team - Школа бразильского джиу-джитсу" decoding="async">
             </picture>
           </a>
@@ -364,7 +366,7 @@
         <div class="container">
           <h2 class="contacts__title">Контактная информация</h2>
         </div>
-        <div class="contacts__wrapper u-defer">
+        <div class="contacts__wrapper">
           <div class="container">
             <div class="contacts__inner">
               <p class="contacts__text">
@@ -374,8 +376,8 @@
               <a href="tel:+79620894276" class="contacts__text">+7&nbsp;962&nbsp;089 42&nbsp;76</a>
             </div>
           </div>
-          <div class="contacts__map" id="ymap" data-src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa7f074a1e1ee403b08dee71c3b35d2cc8c862bdea3e826cb07b0629fb9027f24&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true">
-            <!-- Map will load on scroll into view -->
+          <div class="contacts__map">
+            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa7f074a1e1ee403b08dee71c3b35d2cc8c862bdea3e826cb07b0629fb9027f24&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
           </div>
         </div>
       </section>
@@ -386,8 +388,9 @@
         <div class="footer__wrapper">
           <a class="footer__logo" href="index.html" aria-label="Переход на главную">
             <picture>
-              <source media="(max-width: 100px)" srcset="img/logo.png 1x, img/logo@2x.png 2x" />
-              <source media="(max-width: 100px)" srcset="img/logo.png 1x, img/logo@2x.png 2x" />
+              <source type="image/avif" srcset="img/logo.avif 1x, img/logo@2x.avif 2x" />
+              <source type="image/webp" srcset="img/logo.webp 1x, img/logo@2x.webp 2x" />
+              <source srcset="img/logo.png 1x, img/logo@2x.png 2x" />
               <img class="footer__logo-img" src="img/logo.png" srcset="img/logo@2x.png 2x" width="84" height="60" loading="lazy" decoding="async" alt="Immortals Team - Школа бразильского джиу-джитсу" />
             </picture>
           </a>
@@ -425,43 +428,6 @@
   </div>
   <script src="js/vendor.min.js" defer></script>
   <script src="js/main.min.js" defer></script>
-  <script>
-    (function() {
-      var mapContainer = document.getElementById('ymap');
-      if (!mapContainer) {
-        return;
-      }
-      var loaded = false;
-      var loadMap = function() {
-        if (loaded) {
-          return;
-        }
-        loaded = true;
-        var src = mapContainer.getAttribute('data-src');
-        if (!src) {
-          return;
-        }
-        var s = document.createElement('script');
-        s.src = src;
-        s.async = true;
-        document.body.appendChild(s);
-      };
-      if ('IntersectionObserver' in window) {
-        var io = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-              loadMap();
-              io.disconnect();
-            }
-          });
-        });
-        io.observe(mapContainer);
-      } else {
-        // Fallback: load after window load
-        window.addEventListener('load', loadMap);
-      }
-    })();
-  </script>
 </body>
 
 </html>
