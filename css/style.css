@@ -1159,21 +1159,21 @@ button.swiper-pagination-bullet {
   font-weight: 700;
   font-family: "Rubik";
   font-display: swap;
-  src: url("../fonts/rubik-bold.woff2") format("woff2"), url("../fonts/rubik-bold.woff") format("woff");
+  src: url("../fonts/Rubik-Bold.woff2") format("woff2"), url("../fonts/Rubik-Bold.woff") format("woff");
 }
 @font-face {
   font-style: normal;
   font-weight: 400;
   font-family: "Jost";
   font-display: swap;
-  src: url("../fonts/jost-regular.woff2") format("woff2"), url("../fonts/jost-regular.woff") format("woff");
+  src: url("../fonts/Jost-Regular.woff2") format("woff2"), url("../fonts/Jost-Regular.woff") format("woff");
 }
 @font-face {
   font-family: "Jost";
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url("../fonts/jost-semibold.woff2") format("woff2"), url("../fonts/jost-semibold.woff") format("woff"), url("../fonts/jost-semibold.ttf") format("truetype");
+  src: url("../fonts/Jost-SemiBold.woff2") format("woff2"), url("../fonts/Jost-SemiBold.woff") format("woff"), url("../fonts/Jost-SemiBold.ttf") format("truetype");
 }
 *,
 *::before,
