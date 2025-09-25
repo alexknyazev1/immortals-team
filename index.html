@@ -13,17 +13,84 @@
   <meta property="og:site_name" content="Immortals Team">
   <meta property="og:title" content="Immortals Team — школа бразильского джиу-джитсу">
   <meta property="og:description" content="Тренировки по бразильскому джиу-джитсу (BJJ): взрослые и дети, no-gi, набор в группы, первая неделя со скидкой.">
-  <meta property="og:image" content="img/logo.png">
-  <meta property="og:image:alt" content="Immortals Team">
+  <meta property="og:image" content="https://immortalsteam.ru/img/logo.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Immortals Team - школа бразильского джиу-джитсу">
+  <meta property="og:url" content="https://immortalsteam.ru">
   <meta name="theme-color" content="#141024">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Immortals Team — школа бразильского джиу-джитсу">
+  <meta name="twitter:description" content="Тренировки по бразильскому джиу-джитсу (BJJ): взрослые и дети, no-gi, набор в группы, первая неделя со скидкой.">
+  <meta name="twitter:image" content="https://immortalsteam.ru/img/logo.png">
+  <meta name="twitter:image:alt" content="Immortals Team - школа бразильского джиу-джитсу">
+  <!-- Дополнительные мета-теги для поисковых систем -->
+  <meta name="author" content="Immortals Team">
+  <meta name="copyright" content="Immortals Team">
+  <meta name="language" content="ru">
+  <meta name="geo.region" content="RU-MOS">
+  <meta name="geo.placename" content="Сергиев Посад">
+  <meta name="geo.position" content="56.3061;38.1333">
+  <meta name="ICBM" content="56.3061, 38.1333">
   <link rel="icon" href="favicon/favicon.ico?v=1" sizes="any">
   <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg?v=1">
   <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png?v=1">
   <link rel="manifest" href="favicon/site.webmanifest" crossorigin="use-credentials">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <!-- генерируйте favicon тут - https://realfavicongenerator.net/ -->
+  <!-- ! в подключение фавикон манифеста обязательно добавьте строчки crossorigin="use-credentials"-->
+  <!-- <link href="favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+<link href="favicon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+<link href="favicon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link href="favicon/site.webmanifest" rel="manifest" crossorigin="use-credentials">
+<link color="#c84659" href="favicon/safari-pinned-tab.svg" rel="mask-icon">
+<link href="favicon/favicon.ico" rel="shortcut icon">
+<meta content="#ffffff" name="msapplication-TileColor">
+<meta content="favicon/browserconfig.xml" name="msapplication-config">
+<meta content="#ffffff" name="theme-color">
+ -->
+  <!-- <link rel="preload" href="fonts/rubik.woff2" as="font" crossorigin="anonymous"> -->
+  <!-- используйте только для шрифта находящегося на первом экране -->
+  <!-- Структурированные данные для поисковых систем -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsActivityLocation",
+      "name": "Immortals Team",
+      "description": "Школа бразильского джиу-джитсу (BJJ) в Сергиевом Посаде",
+      "url": "https://immortalsteam.ru",
+      "logo": "https://immortalsteam.ru/img/logo.png",
+      "image": "https://immortalsteam.ru/img/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. Дружбы, 2Б",
+        "addressLocality": "Сергиев Посад",
+        "addressRegion": "Московская область",
+        "addressCountry": "RU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "56.3061",
+        "longitude": "38.1333"
+      },
+      "telephone": "+7-962-089-42-76",
+      "openingHours": "Tu,Th 20:00-22:00;Sa 12:00-14:00",
+      "sport": "Brazilian Jiu-Jitsu",
+      "amenityFeature": [{
+          "@type": "LocationFeatureSpecification",
+          "name": "Тренировки для взрослых"
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Тренировки для детей"
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "No-gi джиу-джитсу"
+        }
+      ]
+    }
+  </script>
   <link rel="preload" href="fonts/Rubik-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="preload" href="fonts/Jost-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="preload" href="fonts/Jost-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
@@ -77,6 +144,18 @@
 </head>
 
 <body>
+  <!-- Лоадер -->
+  <div class="loader" id="loader">
+    <div class="loader__content">
+      <div class="loader__spinner">
+        <div class="loader__circle"></div>
+      </div>
+      <div class="loader__text">
+        <span class="loader__title">Immortals Team</span>
+        <span class="loader__subtitle">Школа бразильского джиу-джитсу</span>
+      </div>
+    </div>
+  </div>
   <div style="display: none;">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <symbol id="icon-insta" viewBox="0 0 24 24">
@@ -90,7 +169,7 @@
       </symbol>
     </svg>
   </div>
-  <div class="wrapper">
+  <div class="wrapper" id="main-content">
     <header class="header ">
       <div class="container">
         <div class="header__wrapper">
@@ -126,7 +205,7 @@
       </div>
     </header>
     <main>
-      <section class="hero">
+      <section class="hero u-defer">
         <div class="container">
           <div class="hero__box">
             <div class="hero__left">
@@ -223,7 +302,7 @@
                 <div class="ticket-card">
                   <h3 class="ticket-card__title">Приведи друга</h3>
                   <div class="ticket-card__inner">
-                    <p class="ticket-card__price">3500&nbsp;₽</p>
+                    <p class="ticket-card__price">3.000&nbsp;₽</p>
                     <p class="ticket-card__desc">12&nbsp;тренировок по&nbsp;джиу-джитсу(no gi) в&nbsp;месяц</p>
                   </div>
                   <a href="https://t.me/feslevee26?text=Здравствуйте! Хочу начать тренироваться" class="ticket-card__btn btn" target="_blank" rel="noopener noreferrer">Оставить заявку</a>
@@ -365,7 +444,13 @@
             </div>
           </div>
           <div class="contacts__map">
-            <iframe title="Карта с расположением зала Immortals Team" src="https://yandex.ru/map-widget/v1/?um=constructor%3Aa7f074a1e1ee403b08dee71c3b35d2cc8c862bdea3e826cb07b0629fb9027f24&amp;source=constructor" width="100%" height="400" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            <iframe data-src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=38473682468&l=map&lang=ru_RU&scroll=false&disable-scroll=true" width="100%" height="400" frameborder="0" loading="lazy" title="Карта расположения школы бразильского джиу-джитсу Immortals Team в Сергиевом Посаде" allowfullscreen referrerpolicy="no-referrer-when-downgrade">
+              <p>Ваш браузер не поддерживает встроенные карты.
+                <a href="https://yandex.ru/maps/?z=12&ol=biz&oid=38473682468" target="_blank" rel="noopener noreferrer">
+                  Открыть карту в новом окне
+                </a>
+              </p>
+            </iframe>
           </div>
         </div>
       </section>
