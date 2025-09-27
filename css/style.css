@@ -1377,20 +1377,24 @@ button,
   pointer-events: none;
 }
 
-body.loading #main-content .header,
-body.loading #main-content .footer {
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: none;
+body.loading {
+  overflow: hidden;
 }
-body.loading #main-content .hero.u-defer {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: none;
-}
-body.loading #main-content .u-defer {
+body.loading #main-content .hero .hero__wrapper {
   opacity: 0;
   transform: translateY(20px);
+  animation: none;
+  transition: none;
+}
+body.loading #main-content .hero .hero__wrapper .btn {
+  opacity: 0;
+  animation: none;
+  transition: none;
+}
+body.loading #main-content .hero .hero__ellipse path {
+  opacity: 0;
+  stroke-dashoffset: 2800;
+  animation: none;
   transition: none;
 }
 body.loading #main-content .contacts {
@@ -1399,16 +1403,26 @@ body.loading #main-content .contacts {
   transition: none;
 }
 
-body.loaded #main-content .header,
-body.loaded #main-content .footer {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+body.loaded {
+  overflow: auto;
 }
-body.loaded #main-content .hero.u-defer {
+body.loaded #main-content .header.header--openned {
+  transform: none;
+  z-index: 10000;
+}
+body.loaded #main-content .hero .hero__wrapper {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  animation: slideUp 0.8s ease-out 0.2s both;
+}
+body.loaded #main-content .hero .hero__wrapper .btn {
+  opacity: 1;
+  animation: slideUp 0.8s ease-out 0.8s both;
+}
+body.loaded #main-content .hero .hero__ellipse path {
+  opacity: 1;
+  stroke-dashoffset: 0;
+  animation: drawEllipse 1.5s ease-out 0.3s both;
 }
 body.loaded #main-content .u-defer {
   opacity: 1;
@@ -1558,7 +1572,7 @@ body.loaded #main-content .contacts {
 .main-nav__toggle {
   top: 18px;
   right: 27px;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   width: 54px;
@@ -1570,7 +1584,6 @@ body.loaded #main-content .contacts {
   background-color: #D52027;
   transition: background-color 0.3s ease 0.6s;
   z-index: 200;
-  display: none;
 }
 @media (max-width: 1023px) {
   .main-nav__toggle {
@@ -1591,7 +1604,7 @@ body.loaded #main-content .contacts {
 }
 .header--openned .main-nav {
   background-color: transparent;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
 }
 .header--openned .main-nav .main-nav__line {
   background-color: transparent;
@@ -1606,9 +1619,10 @@ body.loaded #main-content .contacts {
   transform: rotate(-45deg);
   transition: top 0.3s ease, transform 0.3s ease 0.3s;
 }
-.header--openned .main-nav .main-nav__list {
+.header--openned .main-nav__list {
   opacity: 1;
   pointer-events: all;
+  transform: translateY(0);
 }
 .header:not(.header--openned) .main-nav:hover .main-nav__line::after,
 .header:not(.header--openned) .main-nav:hover .main-nav__line::before, .header:not(.header--openned) .main-nav:focus-visible .main-nav__line::after,
@@ -1668,6 +1682,7 @@ body.loaded #main-content .contacts {
   .main-nav__list {
     opacity: 0;
     pointer-events: none;
+    transform: translateY(8px);
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -1679,8 +1694,8 @@ body.loaded #main-content .contacts {
     gap: 68px;
     overflow-y: auto;
     background-color: #141024;
-    z-index: 300;
-    transition: opacity 0.3s ease;
+    z-index: 9999;
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 }
 @media (max-width: 1023px) and (max-width: 767px) {
@@ -1959,7 +1974,7 @@ body.loaded #main-content .contacts {
 
 @keyframes slideUp {
   from {
-    transform: translateY(100px);
+    transform: translateY(20px);
     opacity: 0;
   }
   to {
@@ -1972,9 +1987,17 @@ body.loaded #main-content .contacts {
     opacity: 0;
     stroke-dashoffset: 2800;
   }
+  20% {
+    opacity: 0.3;
+    stroke-dashoffset: 2240;
+  }
   50% {
-    opacity: 0.5;
+    opacity: 0.6;
     stroke-dashoffset: 1400;
+  }
+  80% {
+    opacity: 0.8;
+    stroke-dashoffset: 560;
   }
   100% {
     opacity: 1;
@@ -2035,12 +2058,10 @@ body.loaded #main-content .contacts {
   flex-direction: column;
   gap: 60px;
   z-index: 300;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: none;
-  will-change: transform;
   align-items: flex-start;
   text-align: left;
+  opacity: 0;
+  transform: translateY(20px);
 }
 @media (max-width: 1439px) {
   .hero__wrapper {
@@ -2170,18 +2191,11 @@ body.loaded #main-content .contacts {
 .hero__wrapper .btn {
   align-self: flex-start;
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 @media (max-width: 1023px) {
   .hero__wrapper .btn {
     align-self: center;
   }
-}
-body.loaded .hero__wrapper .btn {
-  opacity: 1;
-  transform: translateY(0);
-  animation-delay: 0.8s;
 }
 .hero__right {
   grid-column: 2;
@@ -2244,11 +2258,6 @@ body.loaded .hero__wrapper .btn {
   stroke-dasharray: 2800;
   stroke-dashoffset: 2800;
   opacity: 0;
-  animation: none;
-}
-body.loaded .hero__ellipse path {
-  animation: drawEllipse 1s linear forwards;
-  animation-delay: 0.5s;
 }
 .hero__img {
   position: relative;
@@ -2258,20 +2267,8 @@ body.loaded .hero__ellipse path {
   height: auto;
   object-fit: cover;
   margin: 0 auto 0;
-  opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-body.loaded .hero__img {
   opacity: 1;
   transform: scale(1);
-  animation-delay: 1s;
-}
-body.loaded .hero__wrapper {
-  opacity: 1;
-  transform: translateY(0);
-  animation: slideUp 1s ease-out forwards;
-  animation-delay: 0.2s;
 }
 
 .about {
@@ -2551,20 +2548,23 @@ body.loaded .hero__wrapper {
   block-size: 24px;
   flex: 0 0 24px;
   transition: transform 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   /* вертикальная палка для плюса */
 }
 @media (max-width: 1023px) {
   .faq__accordion-button {
-    inline-size: 20px;
-    block-size: 20px;
-    flex-basis: 20px;
+    inline-size: 24px;
+    block-size: 24px;
+    flex-basis: 24px;
   }
 }
 @media (max-width: 767px) {
   .faq__accordion-button {
-    inline-size: 18px;
-    block-size: 18px;
-    flex-basis: 18px;
+    inline-size: 24px;
+    block-size: 24px;
+    flex-basis: 24px;
   }
 }
 .faq__accordion-button::after, .faq__accordion-button::before {
@@ -2572,8 +2572,8 @@ body.loaded .hero__wrapper {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 24px;
-  height: 2px;
+  width: 16px;
+  height: 3px;
   background-color: #141024;
   transform: translate(-50%, -50%);
 }
