@@ -1241,6 +1241,17 @@ button,
   transition: none !important;
 }
 
+.ruble {
+  font-family: "Jost", "Arial", sans-serif;
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  vertical-align: baseline;
+  -webkit-text-stroke: 0.01em transparent;
+  text-rendering: optimizeLegibility;
+}
+
 .container {
   width: 100%;
   max-width: 1480px;
@@ -2999,10 +3010,13 @@ body.loaded .contacts {
   font-family: "Jost", "Arial", sans-serif;
   font-weight: 600;
 }
-.promo__price::after {
-  content: "₽";
+.promo__price .ruble {
   font-family: "Jost", "Arial", sans-serif;
   font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  vertical-align: baseline;
 }
 .promo__form {
   display: flex;
@@ -3410,10 +3424,13 @@ body.loaded .contacts {
   text-align: center;
   font-family: "Jost", "Arial", sans-serif;
 }
-.ticket-card__price::after {
-  content: "₽";
+.ticket-card__price .ruble {
   font-family: "Jost", "Arial", sans-serif;
   font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  vertical-align: baseline;
 }
 @media (max-width: 1279px) {
   .ticket-card__price {
