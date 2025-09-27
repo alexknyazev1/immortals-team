@@ -2995,6 +2995,15 @@ body.loaded .contacts {
     line-height: 24px;
   }
 }
+.promo__price {
+  font-family: "Jost", "Arial", sans-serif;
+  font-weight: 600;
+}
+.promo__price::after {
+  content: "₽";
+  font-family: "Jost", "Arial", sans-serif;
+  font-weight: 600;
+}
 .promo__form {
   display: flex;
   flex-direction: column;
@@ -3399,6 +3408,12 @@ body.loaded .contacts {
   font-size: 50px;
   line-height: 54px;
   text-align: center;
+  font-family: "Jost", "Arial", sans-serif;
+}
+.ticket-card__price::after {
+  content: "₽";
+  font-family: "Jost", "Arial", sans-serif;
+  font-weight: 600;
 }
 @media (max-width: 1279px) {
   .ticket-card__price {
